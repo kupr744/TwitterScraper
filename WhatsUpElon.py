@@ -26,6 +26,9 @@ class LookUp:
 
 
 def main():
+    print("<WhatsUpElon>  Copyright (C) <2021>  <kupr744>\nThis program comes with ABSOLUTELY NO WARRANTY;\n\
+This is free software, and you are welcome to redistribute it\nunder certain conditions;\n")
+
     x = LookUp(44196397)
 
     while(True):
