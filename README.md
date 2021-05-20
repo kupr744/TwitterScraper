@@ -14,3 +14,6 @@ you could also get the tweets from someone else just change the following in mai
 - a secret bearer token
 - put the bearer token in the secrets.txt 
 - now you are good to go
+
+### how to get the twitter user id?
+search for twitter username to user id
