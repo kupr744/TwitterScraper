@@ -6,6 +6,7 @@ class LookUp:
 
     def __init__(self, uid):
         self.keywords = []
+        self.count = 100
         self.url = "https://api.twitter.com/2/users/{}/tweets".format(uid)
         
         with open("secrets.txt", "r") as file:
@@ -16,13 +17,14 @@ class LookUp:
                     self.keywords.append(line.splitlines()[0])
         except:
             print("no keywords, huh?\n")
+            self.count = 15
 
         if( len(self.keywords) != 0):
             print("Keywords: {}\n".format(self.keywords))
 
     def get_tweets(self):
         headers = {"Authorization": "Bearer {}".format(self.secret)}
-        params = {"max_results" : "100"}
+        params = {"max_results" : "{}".format(self.count)}
 
         data = requests.get(self.url, headers=headers, params=params)
         if data.status_code != 200:
