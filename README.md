@@ -10,7 +10,7 @@ you could also get the tweets from someone else just change the following in mai
 
 **v2: accepting keywords now, put them in keywords.txt file**
 
-**v3: example keywords in file
+**v3: example keywords in file**
 
 ## Requirements
 
