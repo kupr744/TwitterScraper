@@ -1,0 +1,2 @@
+# lines starting with '#' are being skipped
+bitcoin

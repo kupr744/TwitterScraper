@@ -11,10 +11,16 @@ class LookUp:
         
         with open("secrets.txt", "r") as file:
             self.secret = file.read()
+        
         try:
             with open("keywords.txt", "r") as file:
                 for line in file:
-                    self.keywords.append(line.splitlines()[0])
+                    if line[0] == '#':
+                        continue
+                    self.keywords.append(line)
+
+                if len(self.keywords) == 0:
+                    raise 'NoKeywords'
         except:
             print("no keywords, huh?\n")
             self.count = 15
@@ -55,10 +61,9 @@ This is free software, and you are welcome to redistribute it\nunder certain con
 
     x = LookUp(44196397)
 
-    while(True):
-        data = x.get_tweets()
-        x.makepretty(data)
-        time.sleep(60 * 5)
+    data = x.get_tweets()
+    x.makepretty(data)
+        
 
 if __name__ == "__main__":
     main()
