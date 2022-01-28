@@ -1,6 +1,4 @@
-from typing import List
 import requests
-import time
 
 class LookUp:
 
@@ -20,12 +18,12 @@ class LookUp:
                     self.keywords.append(line)
 
                 if len(self.keywords) == 0:
-                    raise 'NoKeywords'
-        except:
-            print("no keywords, huh?\n")
+                    raise RuntimeError('no keywords')
+        except RuntimeError as err:
+            print("caught error: " + repr(err))
             self.count = 15
 
-        if( len(self.keywords) != 0):
+        if len(self.keywords) != 0:
             print("Keywords: {}\n".format(self.keywords))
 
     def get_tweets(self):
@@ -37,7 +35,7 @@ class LookUp:
             raise Exception("Request returned an error: {} {}".format(data.status_code, data.text))
         return data.json()
 
-    def makepretty(self, data):
+    def makepretty(self, data) -> None:
         counter = 0
         
         if(len(self.keywords) == 0):
@@ -55,9 +53,8 @@ class LookUp:
         print("found {} tweets".format(counter))
     
 
-def main():
-    print("<WhatsUpElon>  Copyright (C) <2021>  <kupr744>\nThis program comes with ABSOLUTELY NO WARRANTY;\n\
-This is free software, and you are welcome to redistribute it\nunder certain conditions;\n")
+def main() -> None:
+    print('''<WhatsUpElon>  Copyright (C) <2021>  <kupr744>\nThis program comes with ABSOLUTELY NO WARRANTY;\n\This is free software, and you are welcome to redistribute it\nunder certain conditions;\n''')
 
     x = LookUp(44196397)
 
