@@ -1,8 +1,8 @@
-# WhatsUpElon
+# Twitter Scraper
 
-get the latest tweets from elon musk followed by a link to the tweet on your command line.
+get the latest tweets from twitter users followed by a link to the tweet on your command line.
 
-you could also get the tweets from someone else just change the following in main:
+you can get tweets from anyone just change the following in main:
 
 ```python
     x = LookUp(44196397) #<-- replace twitter user id
